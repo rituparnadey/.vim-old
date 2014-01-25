@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # YVim
 
@@ -126,3 +127,9 @@ See [vimrc](https://github.com/dexteryy/YVim/blob/master/vimrc) and [gvimrc](htt
 * [snippets/javascript.snippets (for UltiSnips)](http://github.com/dexteryy/YVim/blob/master/snippets/javascript.snippets)
 * [syntax/javascript.vim](http://github.com/dexteryy/YVim/blob/master/syntax/javascript.vim)
 
+=======
+.vim
+====
+
+My Vim Config files
+>>>>>>> 58f982d374ee3797390b61a9816986c773dd42c9

@@ -59,6 +59,7 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 Bundle 'L9'
 Bundle 'tpope/vim-scriptease'
+Bundle 'tomasr/molokai'
 Bundle 'scrooloose/syntastic'
 Bundle 'FuzzyFinder'
 Bundle 'bufexplorer.zip'
@@ -110,8 +111,7 @@ Bundle 'cecutil'
 Bundle 'DrawIt'
 Bundle 'mattn/calendar-vim'
 Bundle 'uguu-org/vim-matrix-screensaver'
-Bundle 'molokai'
-
+Bundle 'aperezdc/vim-template/'
 filetype plugin indent on  
 
 
@@ -169,10 +169,8 @@ set diffopt+=iwhite,vertical " 忽略缩进的差异
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if has("gui_running") || has("gui_macvim")
-    colorscheme yytextmate
-    let g:colors_name="yytextmate"
-    "colorscheme molokai 
-    "let g:colors_name="molokai"
+    colorscheme molokai 
+    let g:colors_name="molokai"
 else
     colorscheme molokai 
     let g:colors_name="molokai"
@@ -180,8 +178,8 @@ else
 endif
 
 if MySys() == "mac"
-	set guifont=Monaco:h13
-	set guifontwide=Hei_Regular:h13
+	set guifont=Monaco:h12
+	set guifontwide=Hei_Regular:h12
 elseif MySys() == "linux"
 	set guifont=Monospace
 endif
@@ -215,7 +213,7 @@ if has("gui_macvim")
 	let macvim_skip_cmd_opt_movement = 1
 	let macvim_hig_shift_movement = 1
 
-	set transparency=9
+	set transparency=0
 	set guioptions-=T "egmrt
 	"set guioptions+=b 
 
@@ -455,6 +453,10 @@ map <leader>tab :Tabularize / = <cr>
 
 " clam.vim
 map <D-C> :Clam 
+
+"vim-template 
+let g:template_no_autocmd = 1
+
 
 " session
 let g:session_autoload = 'no'

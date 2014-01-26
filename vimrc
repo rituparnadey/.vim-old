@@ -68,6 +68,7 @@ Bundle 'ctrlp.vim'
 Bundle 'ack.vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
+Bundle 'heavenshell/vim-jsdoc'
 Bundle 'mihaifm/vimpanel'
 "Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'scrooloose/nerdtree'
@@ -111,7 +112,6 @@ Bundle 'cecutil'
 Bundle 'DrawIt'
 Bundle 'mattn/calendar-vim'
 Bundle 'uguu-org/vim-matrix-screensaver'
-Bundle 'aperezdc/vim-template/'
 filetype plugin indent on  
 
 
@@ -129,6 +129,10 @@ function! MySys()
     	return "linux"
   	endif
 endfunction
+
+
+"set indent for javascript 
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 
 "if MySys() == 'mac' || MySys() == 'linux'
 	"set shell=/bin/bash\ -l

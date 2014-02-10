@@ -111,6 +111,7 @@ Bundle 'scratch.vim'
 Bundle 'cecutil'
 Bundle 'DrawIt'
 Bundle 'mattn/calendar-vim'
+Bundle 'klen/python-mode'
 Bundle 'uguu-org/vim-matrix-screensaver'
 filetype plugin indent on  
 
@@ -118,6 +119,8 @@ filetype plugin indent on
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+:let g:session_autosave = 'no'
 
 " Platform
 function! MySys()

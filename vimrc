@@ -113,8 +113,17 @@ Bundle 'DrawIt'
 Bundle 'mattn/calendar-vim'
 Bundle 'klen/python-mode'
 Bundle 'uguu-org/vim-matrix-screensaver'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'ntpeters/vim-better-whitespace' 
+Bundle 'fs111/pydoc.vim'
+
 filetype plugin indent on  
 
+"""""""""""""""""
+" Pydoc settings
+"""""""""""""""""
+let g:pydoc_cmd = 'python -m pydoc'
+let g:pydoc_open_cmd = 'vsplit' 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
@@ -176,8 +185,9 @@ set diffopt+=iwhite,vertical " 忽略缩进的差异
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if has("gui_running") || has("gui_macvim")
-    colorscheme molokai 
-    let g:colors_name="molokai"
+    set background=dark
+    colorscheme solarized  
+    let g:colors_name="solarized"
 else
     colorscheme molokai 
     let g:colors_name="molokai"
@@ -434,7 +444,7 @@ nnoremap <leader>/ :Ack
 let g:flake8_ignore = 'E401,E501'
 
 " Syntastic
-let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_checkers = ['flake8', 'pep8', 'pylint']
 let g:syntastic_python_flake8_args = '--ignore="E401,E501"'
 let g:syntastic_javascript_checkers = ['jshint']
 "let g:syntastic_css_checkers = ['csslint']
@@ -701,3 +711,64 @@ let g:slimv_leader = ",l"
 let g:slimv_impl = 'ccl'
 let g:slimv_swank_cmd = '!osascript -e "tell application \"Terminal\" to do script \"ccl --load ~/.vim/slime/start-swank.lisp\""' 
 
+let g:user_emmet_mode='a'
+set guifont=Monaco:h12
+let g:NERDTreeWinPos = "right"
+set guioptions-=T " Removes top toolbar
+set guioptions-=r " Removes right hand scroll bar
+set go-=L " Removes left hand scroll bar
+autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly
+:set cpoptions+=$ " puts a $ marker for the end of words/lines in cw/c$ commands
+"tab space
+autocmd Filetype html setlocal ts=4 sts=4 sw=4
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype python setlocal ts=4 sts=4 sw=4
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+
+let g:user_emmet_mode='a'
+
+" ad rope plugin
+let g:pymode_rope = 1
+
+" Map keys for autocompletion
+let g:pymode_rope_autocomplete_map = '<C-Space>'
+
+" Auto create and open ropeproject
+let g:pymode_rope_auto_project = 1
+
+" Enable autoimport
+let g:pymode_rope_enable_autoimport = 1
+
+" Auto generate global cache
+let g:pymode_rope_autoimport_generate = 1
+
+let g:pymode_rope_autoimport_underlineds = 0
+
+let g:pymode_rope_codeassist_maxfixes = 10
+
+let g:pymode_rope_sorted_completions = 1
+
+let g:pymode_rope_extended_complete = 1
+
+let g:pymode_rope_autoimport_modules = ["os","shutil","datetime"]
+
+let g:pymode_rope_confirm_saving = 1
+
+let g:pymode_rope_global_prefix = "<C-x>p"
+
+let g:pymode_rope_local_prefix = "<C-c>r"
+
+let g:pymode_rope_vim_completion = 1
+
+let g:pymode_rope_guess_project = 1
+
+let g:pymode_rope_goto_def_newwin = ""
+
+let g:pymode_rope_always_show_complete_menu = 0
+
+let g:pymode_virtualenv = 1
+
+
+
+let g:used_javascript_libs = 'underscore,backbone,angularjs,jquery'

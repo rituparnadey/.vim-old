@@ -186,11 +186,11 @@ set diffopt+=iwhite,vertical " 忽略缩进的差异
 
 if has("gui_running") || has("gui_macvim")
     set background=dark
-    colorscheme solarized  
-    let g:colors_name="solarized"
-else
-    colorscheme molokai 
-    let g:colors_name="molokai"
+    colorscheme railscasts  
+    let g:colors_name="railscasts"
+elseif
+    colorscheme railcasts 
+    let g:colors_name="railscasts"
 	"colorscheme slate
 endif
 

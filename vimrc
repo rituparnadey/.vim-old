@@ -58,6 +58,8 @@ Bundle 'gmarik/vundle'
 
 " My Bundles here:
 Bundle 'L9'
+Bundle 'jaxbot/github-issues.vim'
+Bundle 'junegunn/seoul256.vim'
 Bundle 'tpope/vim-scriptease'
 Bundle 'tomasr/molokai'
 Bundle 'scrooloose/syntastic'
@@ -116,8 +118,21 @@ Bundle 'uguu-org/vim-matrix-screensaver'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ntpeters/vim-better-whitespace' 
 Bundle 'fs111/pydoc.vim'
-
+Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'jpalardy/vim-slime'
+Bundle 'vim-scripts/LanguageTool'
 filetype plugin indent on  
+
+" vim slime 
+let g:slime_target = "tmux"
+
+""""""""
+"fix paste 
+"""""""""
+set pastetoggle=<F10>
+
+
+
 
 """""""""""""""""
 " Pydoc settings
@@ -142,6 +157,7 @@ function! MySys()
   	endif
 endfunction
 
+let g:github_access_token = ''
 
 "set indent for javascript 
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
@@ -186,11 +202,11 @@ set diffopt+=iwhite,vertical " 忽略缩进的差异
 
 if has("gui_running") || has("gui_macvim")
     set background=dark
-    colorscheme railscasts  
-    let g:colors_name="railscasts"
+    colorscheme seoul256  
+    let g:colors_name="seoul256"
 elseif
-    colorscheme railcasts 
-    let g:colors_name="railscasts"
+    colorscheme seoul256 
+    let g:colors_name="seoul256"
 	"colorscheme slate
 endif
 
@@ -455,7 +471,7 @@ let g:syntastic_always_populate_loc_list = 1
 
 " Indent Guides
 let g:indent_guides_auto_colors = 0
-let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 
@@ -585,7 +601,25 @@ map <leader>vp :vl default<cr>
 map <leader>vl :vl 
 
 
-let NERDCreateDefaultMappings=0
+
+
+
+
+
+
+
+
+
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
 "let NERDShutUp=1
 "let g:NERDCommenterLeader="<leader>n" " change NERD_commenter.vim
 nmap <leader>nc <plug>NERDCommenterComment
@@ -720,7 +754,7 @@ set go-=L " Removes left hand scroll bar
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly
 :set cpoptions+=$ " puts a $ marker for the end of words/lines in cw/c$ commands
 "tab space
-autocmd Filetype html setlocal ts=4 sts=4 sw=4
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype python setlocal ts=4 sts=4 sw=4

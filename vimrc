@@ -203,11 +203,12 @@ set diffopt+=iwhite,vertical " 忽略缩进的差异
 
 if has("gui_running") || has("gui_macvim")
     set background=dark
-    colorscheme seoul256  
-    let g:colors_name="seoul256"
+    colorscheme Tomorrow-Night-Blue 
+    let g:colors_name="Tomorrow-Night-Blue"
+
 elseif
-    colorscheme seoul256 
-    let g:colors_name="seoul256"
+    colorscheme Tomorrow-Night-Blue
+    let g:colors_name="Tomorrow-Night-Blue"
 	"colorscheme slate
 endif
 
@@ -666,7 +667,7 @@ let g:Powerline_symbols = 'compatible'
 "let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsSnippetDirectories=["snippets"]
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
 " neocomplcache
 
